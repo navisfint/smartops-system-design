@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><link rel="stylesheet" href="d.css"></head>
+<body>
+<div class="ipo">
+  <div class="title">2.4.1 告警规则配置 · IPO 图</div>
+  <div class="sub">告警中心模块 → 子模块：条件表达式、聚合抑制与通知升级</div>
+  <div class="row">
+    <div class="col in">
+      <div class="ct"><i>I</i>输 入</div>
+      <div class="li">规则元信息：名称、类型（指标/日志/巡检）、级别</div>
+      <div class="li">触发条件：指标表达式或可视化条件 + 持续时间</div>
+      <div class="li">作用范围：资源类型、标签、分组</div>
+      <div class="li">聚合抑制开关、维护窗口、通知渠道与升级策略</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col pr">
+      <div class="ct"><i>P</i>处 理</div>
+      <div class="step"><span>1</span>校验表达式语法与字段名有效性</div>
+      <div class="step"><span>2</span>解析作用范围，计算命中资源集合</div>
+      <div class="step"><span>3</span>命中预演：以历史数据回放，输出预计触发频次</div>
+      <div class="step"><span>4</span>生成规则版本并下发检测引擎与告警归并引擎</div>
+      <div class="step"><span>5</span>按灰度策略生效（指定分组先观察，再全量）</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col out">
+      <div class="ct"><i>O</i>输 出</div>
+      <div class="li">规则版本记录与变更日志</div>
+      <div class="li">命中预演结果（预计触发次数、样例告警）</div>
+      <div class="li">生效范围与灰度进度</div>
+      <div class="li">通知渠道、值班对象与升级链路配置</div>
+    </div>
+  </div>
+  <div class="foot">设计要点：规则发布前必须跑命中预演，避免上线即告警风暴；升级策略按「未确认时长」分级触发。</div>
+</div>
+</body></html>

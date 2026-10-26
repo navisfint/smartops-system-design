@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><link rel="stylesheet" href="d.css"></head>
+<body>
+<div class="ipo">
+  <div class="title">2.4.2 告警降噪与派单 · IPO 图</div>
+  <div class="sub">告警中心模块 → 子模块：相似聚合、拓扑抑制与分级派单</div>
+  <div class="row">
+    <div class="col in">
+      <div class="ct"><i>I</i>输 入</div>
+      <div class="li">原始告警流（资源、指标、级别、时间戳）</div>
+      <div class="li">聚合键配置（按资源 / 按规则 / 按拓扑节点）</div>
+      <div class="li">资源依赖拓扑关系</div>
+      <div class="li">维护窗口日历与值班排班表</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col pr">
+      <div class="ct"><i>P</i>处 理</div>
+      <div class="step"><span>1</span>计算告警间相似度，在时间窗口内合并为一条主告警</div>
+      <div class="step"><span>2</span>按依赖拓扑做抑制：上游故障存在时降级下游告警</div>
+      <div class="step"><span>3</span>命中维护窗口的告警自动静默并记录</div>
+      <div class="step"><span>4</span>按值班表计算处理人，生成派单并推送通知</div>
+      <div class="step"><span>5</span>超时未确认则按升级链路逐级上报</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col out">
+      <div class="ct"><i>O</i>输 出</div>
+      <div class="li">主告警与聚合明细（合并条数、影响资源）</div>
+      <div class="li">派单结果与通知送达回执</div>
+      <div class="li">升级记录与超时统计</div>
+      <div class="li">降噪率、平均响应时长等指标，汇入报表中心</div>
+    </div>
+  </div>
+  <div class="foot">设计要点：聚合与抑制均在告警入队后完成，保证原始告警不丢失；所有压缩动作在告警详情中可追溯。</div>
+</div>
+</body></html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><link rel="stylesheet" href="d.css"></head>
+<body>
+<div class="ipo">
+  <div class="title">2.2.1 巡检模板管理 · IPO 图</div>
+  <div class="sub">巡检编排模块 → 子模块：巡检模板与检查项配置</div>
+  <div class="row">
+    <div class="col in">
+      <div class="ct"><i>I</i>输 入</div>
+      <div class="li">模板基本信息：名称、调度周期、并发度、超时、失败重试</div>
+      <div class="li">检查项配置：检查对象、采集方式、判定条件、权重、告警级别、是否必检</div>
+      <div class="li">关联资源范围（分组 / 标签 / 显式资源列表）</div>
+      <div class="li">模板基线版本号</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col pr">
+      <div class="ct"><i>P</i>处 理</div>
+      <div class="step"><span>1</span>校验检查项判定条件语法与阈值合法性</div>
+      <div class="step"><span>2</span>解析关联资源范围，计算实际命中资源清单</div>
+      <div class="step"><span>3</span>按检查项权重计算健康度评分权重表</div>
+      <div class="step"><span>4</span>生成模板版本号并落库，同步注册调度计划</div>
+      <div class="step"><span>5</span>将模板下发至巡检编排引擎与采集引擎</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col out">
+      <div class="ct"><i>O</i>输 出</div>
+      <div class="li">模板版本记录（含变更对比）</div>
+      <div class="li">关联资源清单与命中台数</div>
+      <div class="li">巡检调度计划（周期、并发、超时、重试）</div>
+      <div class="li">检查项配置快照，供执行结果回溯时对齐口径</div>
+    </div>
+  </div>
+  <div class="foot">设计要点：模板与资源解耦，资源通过分组/标签动态匹配，新增资源自动纳入巡检而不需改模板。</div>
+</div>
+</body></html>

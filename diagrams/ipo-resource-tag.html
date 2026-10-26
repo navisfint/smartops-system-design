@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><link rel="stylesheet" href="d.css"></head>
+<body>
+<div class="ipo">
+  <div class="title">2.1.2 资源详情与标签管理 · IPO 图</div>
+  <div class="sub">资源纳管模块 → 子模块：资源详情、标签与分组维护</div>
+  <div class="row">
+    <div class="col in">
+      <div class="ct"><i>I</i>输 入</div>
+      <div class="li">资源 ID（来自列表或分组树选中项）</div>
+      <div class="li">用户提交的状态、分组、标签变更指令</div>
+      <div class="li">批量操作选中的资源集合（多选 ID 列表）</div>
+      <div class="li">时间窗口参数（详情页指标与巡检记录的查询区间）</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col pr">
+      <div class="ct"><i>P</i>处 理</div>
+      <div class="step"><span>1</span>读取资源主记录、运行状态与关联指标</div>
+      <div class="step"><span>2</span>校验操作者对该资源范围的操作权限</div>
+      <div class="step"><span>3</span>应用标签/分组变更，清理旧索引并写入新索引</div>
+      <div class="step"><span>4</span>写入审计日志（操作人、动作、对象、变更前后值）</div>
+      <div class="step"><span>5</span>刷新缓存与依赖拓扑索引</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col out">
+      <div class="ct"><i>O</i>输 出</div>
+      <div class="li">资源详情视图（基础信息、指标卡、依赖拓扑）</div>
+      <div class="li">更新后的标签集合与分组归属</div>
+      <div class="li">审计日志条目</div>
+      <div class="li">分组树计数与健康度统计同步刷新</div>
+    </div>
+  </div>
+  <div class="foot">权限约束：只读角色仅可查看详情，标签与分组变更需「资源纳管-操作」及以上权限。</div>
+</div>
+</body></html>

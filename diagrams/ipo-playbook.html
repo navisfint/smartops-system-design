@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><link rel="stylesheet" href="d.css"></head>
+<body>
+<div class="ipo">
+  <div class="title">2.5.1 自愈剧本编排 · IPO 图</div>
+  <div class="sub">自愈与工单模块 → 子模块：触发条件、动作序列与执行闭环</div>
+  <div class="row">
+    <div class="col in">
+      <div class="ct"><i>I</i>输 入</div>
+      <div class="li">触发条件（告警级别、规则、资源标签、变更冻结期）</div>
+      <div class="li">动作序列：动作类型、执行目标、参数、超时、失败处理策略</div>
+      <div class="li">安全阈值（如单次释放空间上限、并发上限）</div>
+      <div class="li">告警上下文（资源 ID、触发指标、当前值）</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col pr">
+      <div class="ct"><i>P</i>处 理</div>
+      <div class="step"><span>1</span>匹配触发条件，选取剧本并做干跑校验</div>
+      <div class="step"><span>2</span>按序执行动作：采集明细 → 清理/重启/扩容 → 校验水位</div>
+      <div class="step"><span>3</span>每步采集执行结果与指标变化，失败按策略重试或跳过</div>
+      <div class="step"><span>4</span>校验目标指标是否回落至安全区间</div>
+      <div class="step"><span>5</span>成功则关闭告警闭环；失败或超安全阈值则转人工工单</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col out">
+      <div class="ct"><i>O</i>输 出</div>
+      <div class="li">执行记录与逐步日志</div>
+      <div class="li">恢复后的指标值（如磁盘水位变化）</div>
+      <div class="li">告警关闭标记或人工工单号</div>
+      <div class="li">剧本成功率统计，用于剧本迭代与灰度决策</div>
+    </div>
+  </div>
+  <div class="foot">安全约束：涉及删除、重启类动作须设置二次确认阈值；灰度剧本仅对指定分组生效。</div>
+</div>
+</body></html>

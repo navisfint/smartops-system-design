@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><link rel="stylesheet" href="d.css"></head>
+<body>
+<div class="ipo">
+  <div class="title">2.2.2 巡检 DAG 编排 · IPO 图</div>
+  <div class="sub">巡检编排模块 → 子模块：流程画布与节点属性配置</div>
+  <div class="row">
+    <div class="col in">
+      <div class="ct"><i>I</i>输 入</div>
+      <div class="li">节点定义：节点类型（采集/脚本/网关/判定/告警/报告）、脚本与参数、超时、重试策略</div>
+      <div class="li">节点连线与分支条件表达式</div>
+      <div class="li">变量引用关系（上游输出变量 → 下游入参）</div>
+      <div class="li">画布操作事件（拖拽、连线、删除、属性编辑）</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col pr">
+      <div class="ct"><i>P</i>处 理</div>
+      <div class="step"><span>1</span>语法校验：节点必填项、脚本非空、连线完整</div>
+      <div class="step"><span>2</span>环路检测并做拓扑排序，生成可执行序列</div>
+      <div class="step"><span>3</span>变量作用域校验：下游仅可引用直接/间接上游的已声明变量</div>
+      <div class="step"><span>4</span>试运行：对抽样资源做干跑，采集执行结果</div>
+      <div class="step"><span>5</span>校验通过后发布为流程版本，写入调度引擎</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col out">
+      <div class="ct"><i>O</i>输 出</div>
+      <div class="li">DAG 拓扑与执行序列（并行分支与汇聚关系）</div>
+      <div class="li">校验报告（错误节点定位与修正建议）</div>
+      <div class="li">草稿版本与发布版本记录</div>
+      <div class="li">执行计划：节点级并发度、超时、失败分支走向</div>
+    </div>
+  </div>
+  <div class="foot">约束：流程中「自愈」「告警触发」类节点在发布前须经二审，避免流程误配造成批量误操作。</div>
+</div>
+</body></html>

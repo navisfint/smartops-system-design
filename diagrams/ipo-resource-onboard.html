@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><link rel="stylesheet" href="d.css"></head>
+<body>
+<div class="ipo">
+  <div class="title">2.1.1 资源接入 · IPO 图</div>
+  <div class="sub">资源纳管模块 → 子模块：新增资源接入（SSH / Agentless 向导）</div>
+  <div class="row">
+    <div class="col in">
+      <div class="ct"><i>I</i>输 入</div>
+      <div class="li">用户填写的接入信息：<b>资源名称</b>、IP/主机名、端口、认证方式、分组、标签</div>
+      <div class="li">凭据库引用（SSH 私钥 / 密码密文句柄）</div>
+      <div class="li">云账号 AK/SK（批量同步实例时）</div>
+      <div class="li">批量导入 CSV（name, type, ip, port, group, tags）</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col pr">
+      <div class="ct"><i>P</i>处 理</div>
+      <div class="step"><span>1</span>校验字段完整性与 IP/端口格式合法性</div>
+      <div class="step"><span>2</span>发起 TCP 可达性与 SSH/凭据认证测试</div>
+      <div class="step"><span>3</span>读取系统指纹（OS 版本、CPU/内存规格、sudo 权限）</div>
+      <div class="step"><span>4</span>下发采集探针；通道不可达时降级为定时轮询采集</div>
+      <div class="step"><span>5</span>写入资源主表，建立分组与标签索引，刷新分组树计数</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col out">
+      <div class="ct"><i>O</i>输 出</div>
+      <div class="li">资源台账记录（含唯一资源 ID）</div>
+      <div class="li">探针状态与采集模式（探针 / 轮询）</div>
+      <div class="li">连通性检测报告（逐项通过情况与耗时）</div>
+      <div class="li">资源分组与标签索引，供巡检、告警范围引用</div>
+    </div>
+  </div>
+  <div class="foot">异常路径：认证失败 → 中断接入并提示更换凭据；重复 IP → 提示合并或覆盖既有记录，不产生第二条台账。</div>
+</div>
+</body></html>

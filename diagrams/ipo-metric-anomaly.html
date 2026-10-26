@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><link rel="stylesheet" href="d.css"></head>
+<body>
+<div class="ipo">
+  <div class="title">2.3.1 指标监控与异常检测 · IPO 图</div>
+  <div class="sub">监控与检测模块 → 子模块：时序指标看板与多模型异常检测</div>
+  <div class="row">
+    <div class="col in">
+      <div class="ct"><i>I</i>输 入</div>
+      <div class="li">资源与指标选择（单资源单指标 / 多资源对比）</div>
+      <div class="li">聚合口径与窗口（avg/sum，1m/5m）</div>
+      <div class="li">检测算法与灵敏度（EWMA / 3σ / 孤立森林）</div>
+      <div class="li">历史训练窗口（默认 14 天）与最小持续时间</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col pr">
+      <div class="ct"><i>P</i>处 理</div>
+      <div class="step"><span>1</span>拉取时序数据并做缺失值插补与毛刺清洗</div>
+      <div class="step"><span>2</span>训练/更新动态基线模型，输出基线与置信区间</div>
+      <div class="step"><span>3</span>计算逐点偏离度与异常评分，标注异常聚集窗口</div>
+      <div class="step"><span>4</span>按最小持续时间过滤瞬时抖动，抑制毛刺误报</div>
+      <div class="step"><span>5</span>与告警规则联动，命中则生成告警或触发自愈</div>
+    </div>
+    <div class="arw">➜</div>
+    <div class="col out">
+      <div class="ct"><i>O</i>输 出</div>
+      <div class="li">动态基线区间与当前偏离值</div>
+      <div class="li">异常点列表（时刻、实际值、评分、持续时长）</div>
+      <div class="li">异常聚集窗口与聚合后的告警事件</div>
+      <div class="li">检测结果卡片，作为巡检报告与根因分析的输入</div>
+    </div>
+  </div>
+  <div class="foot">设计要点：动态基线随业务周期漂移，规避静态阈值在业务高峰期的误报；三模型结果做加权投票。</div>
+</div>
+</body></html>
