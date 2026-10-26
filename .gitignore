@@ -1,0 +1,10 @@
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Temp render artifacts
+_preview/
+*.tmp
+*.log
