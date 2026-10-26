@@ -4,7 +4,8 @@
 
 **这是一份设计文档，不是可运行系统。** 代码尚未实现，界面原型是真实可跑的 HTML（见第四节说明）。
 
-📄 **[直接打开设计文档（HTML）](design_doc.html)** — 单文件，含全部章节与配图
+📄 **[在线查看设计文档](https://navisfint.github.io/smartops-system-design/)** — 渲染好的完整文档，含全部章节与配图
+　（本地打开：[`design_doc.html`](design_doc.html)；GitHub 网页上直接点 HTML 只会显示源码，用上面这个 Pages 链接）
 
 ---
 
